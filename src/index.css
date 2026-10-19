@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 247 244 238;
+  --fg: 20 20 20;
+  --muted: 109 106 98;
+  --line: 222 217 207;
+  --card: 252 250 246;
+  --accent: 22 163 74;
+}
+.dark {
+  --bg: 11 11 11;
+  --fg: 238 236 229;
+  --muted: 142 139 131;
+  --line: 42 42 40;
+  --card: 19 19 18;
+  --accent: 74 222 128;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+body {
+  @apply bg-bg font-sans text-fg antialiased;
+  overflow-x: hidden;
+}
+::selection {
+  background: rgb(var(--accent) / 0.3);
+}
+
+/* Smooth theme switch (class is added briefly by useTheme) */
+html.theme-transition,
+html.theme-transition * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-card;
+  }
+  .mono-label {
+    @apply font-mono text-xs uppercase tracking-widest text-muted;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition;
+  }
+  .btn-primary {
+    @apply btn bg-fg text-bg hover:opacity-85;
+  }
+  .btn-ghost {
+    @apply btn border border-line hover:border-fg;
+  }
+  .tag {
+    @apply rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-muted;
+  }
+  .cursor {
+    @apply ml-1 inline-block h-[0.9em] w-[0.5em] translate-y-[0.1em] bg-accent;
+    animation: blink 1s steps(1) infinite;
+  }
+}
