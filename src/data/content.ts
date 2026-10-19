@@ -8,7 +8,7 @@ export const profile = {
 
 export const links = {
   github: 'https://github.com/shatakshi-1404',
-  linkedin: 'https://linkedin.com/in/shatakshi-prasad-9104772b',
+  linkedin: 'https://linkedin.com/in/shatakshi-prasad',
   leetcode: 'https://leetcode.com/u/shatakshi-1404/',
   email: 'mailto:shatakshiravaneshwarprasad@gmail.com',
 };
