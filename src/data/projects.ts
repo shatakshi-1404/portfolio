@@ -39,7 +39,7 @@ export const projects: Project[] = [
       'Designed a CI pipeline with pytest, Vitest and Playwright.',
     ],
     github: 'https://github.com/shatakshi-1404/voxera',
-    live: 'https://voxera-egeb.vercel.app/',
+    live: 'https://voxera-sw58.vercel.app/',
     visual: 'support',
   },
 ]
